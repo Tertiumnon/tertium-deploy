@@ -32,7 +32,7 @@ jobs:
 |---|---|
 | `on.workflow_dispatch.inputs` | The inputs the flags may set: `required`, `default`, `type: choice` + `options` are checked |
 | `env` (workflow, job, step) | Exported to the step's script; a step's wins over the job's, the job's over the workflow's |
-| `jobs.<id>.environment` | Names the target. Its secrets and vars come from envlock: `environment: dev` runs `envlock export <package name without scope> dev`, which asks for your passphrase, and keeps the result in memory only. envlock must be on the PATH (`bun add -g @tiii-dev/envlock`). Every key is both `secrets.KEY` and `vars.KEY` |
+| `jobs.<id>.environment` | Names the target. Its secrets and vars come from envlock: `environment: dev` runs `envlock export <package name without scope> dev`, which asks for your passphrase, and keeps the result in memory only. envlock must be on the PATH (`bun add -g @tiii-dev/envlock-cli`). Every key is both `secrets.KEY` and `vars.KEY` |
 | `jobs.<id>.steps[].run` | Run with `bash --noprofile --norc -eo pipefail`, as GitHub does for `shell: bash`. On Windows that is Git Bash, found next to `git` |
 | `steps[].working-directory`, `defaults.run.working-directory` | Relative to the project |
 | `steps[].uses` | Skipped with a note: an action runs only on GitHub (the working tree is the checkout) |

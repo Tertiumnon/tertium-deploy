@@ -9,14 +9,14 @@
 
 ## envlock
 
-[envlock](https://www.npmjs.com/package/@tiii-dev/envlock) keeps each environment's secrets and variables
+envlock (`@tiii-dev/envlock-cli`, a private package on GitHub Packages) keeps each environment's secrets and variables
 (such as `dev` and `prod`) encrypted, and gives them to a deploy on request. The package does not import
 envlock: it runs `envlock` as a command.
 
 Install it on the PATH:
 
 ```bash
-bun add -g @tiii-dev/envlock
+bun add -g @tiii-dev/envlock-cli
 ```
 
 When a job names an `environment`, the deploy runs:

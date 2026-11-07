@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { EnvironmentLoader } from "../workflow/workflow.types";
 
-// envlock is run as a CLI, not imported: this package is public and @tiii-dev/envlock is private.
+// envlock is run as a CLI, not imported: this package is public and @tiii-dev/envlock-cli is private.
 
 // `envlock export` writes simple values as-is and the rest as JSON strings. Errors never show a line: it holds a secret.
 export const parseEnvlockExport = (text: string): Record<string, string> =>
@@ -15,7 +15,7 @@ export const parseEnvlockExport = (text: string): Record<string, string> =>
         const separator = line.indexOf("=");
         if (separator < 1)
           throw new Error(
-            `envlock export line ${index + 1} is not KEY=value - update @tiii-dev/envlock`,
+            `envlock export line ${index + 1} is not KEY=value - update @tiii-dev/envlock-cli`,
           );
         const value = line.slice(separator + 1);
         return [
@@ -51,7 +51,7 @@ const exportEnv = (app: string, environment: string): string => {
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT")
       throw new Error(
-        "envlock not found - install it with: bun add -g @tiii-dev/envlock",
+        "envlock not found - install it with: bun add -g @tiii-dev/envlock-cli",
       );
     throw new Error(
       `envlock export ${app} ${environment} failed - see its message above`,
